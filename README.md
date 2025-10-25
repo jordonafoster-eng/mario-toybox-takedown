@@ -97,6 +97,42 @@ The game is built with:
 - SQLite for data persistence
 - JWT for secure authentication
 
+## Deployment
+
+This app uses SQLite with `better-sqlite3`, which requires a **persistent filesystem**.
+
+### ✅ Compatible Platforms:
+- **Railway** (Recommended) - [railway.app](https://railway.app)
+- **Render** - [render.com](https://render.com)
+- **Heroku** (with paid dyno)
+- **DigitalOcean App Platform**
+- **AWS EC2, Google Cloud VM, Azure VM**
+- **Any VPS with Node.js**
+
+### ❌ NOT Compatible:
+- **Vercel** - Serverless, no persistent filesystem
+- **Netlify** - Serverless, no persistent filesystem
+- **AWS Lambda** - Serverless, no persistent filesystem
+
+### Quick Deploy to Railway:
+1. Push your code to GitHub (already done!)
+2. Go to [railway.app](https://railway.app)
+3. Click "New Project" → "Deploy from GitHub repo"
+4. Select `mario-toybox-takedown`
+5. Railway will automatically detect and deploy your app
+6. Your game will be live in minutes!
+
+### Quick Deploy to Render:
+1. Go to [render.com](https://render.com)
+2. Click "New +" → "Web Service"
+3. Connect your GitHub repository
+4. Render will use the `render.yaml` configuration
+5. Click "Create Web Service"
+
+### Environment Variables (Optional):
+- `PORT` - Server port (default: 3000)
+- `JWT_SECRET` - Custom JWT secret (recommended for production)
+
 ## Future Enhancements
 
 - More levels
