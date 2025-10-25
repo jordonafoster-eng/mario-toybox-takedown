@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mario - Toy Box Takedown</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=18">
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
 </head>
 <body>
@@ -67,6 +67,7 @@
     <div id="game-screen" class="screen" style="display: none;">
         <div class="game-header">
             <button onclick="returnToLevelSelect()" class="back-btn">← Back to Levels</button>
+            <button onclick="restartLevel()" class="restart-btn">↻ Restart Level</button>
             <div class="level-info">
                 <span id="current-level-name">Level 1</span>
             </div>
@@ -78,10 +79,10 @@
         <div id="game-container"></div>
     </div>
 
-    <script src="js/api.js?v=3"></script>
-    <script src="js/auth.js?v=3"></script>
-    <script src="js/levels.js?v=3"></script>
-    <script src="js/game.js?v=3"></script>
-    <script src="js/main.js?v=3"></script>
+    <script src="js/api.js?v=18"></script>
+    <script src="js/auth.js?v=18"></script>
+    <script src="js/levels.js?v=18"></script>
+    <script src="js/game.js?v=18"></script>
+    <script src="js/main.js?v=18"></script>
 </body>
 </html>

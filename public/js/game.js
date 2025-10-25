@@ -87,6 +87,7 @@ class GameScene extends Phaser.Scene {
 
         // Create platforms using graphics
         this.platforms = this.physics.add.staticGroup();
+        this.platformGraphics = [];
         this.levelData.platforms.forEach(platform => {
             // Use graphics to draw platforms
             const graphics = this.add.graphics();
@@ -108,8 +109,13 @@ class GameScene extends Phaser.Scene {
 
             if (platform.switchId) {
                 body.switchId = platform.switchId;
+                body.graphicsRef = graphics;
                 graphics.setAlpha(0.3);
+                // Disable collision for switched platforms initially
+                body.body.enable = false;
             }
+
+            this.platformGraphics.push(graphics);
         });
 
         // Create moving platforms
@@ -129,6 +135,8 @@ class GameScene extends Phaser.Scene {
 
             platform.mpData = mp;
             platform.movingToEnd = true;
+            platform.prevX = platform.x;
+            platform.prevY = platform.y;
 
             this.movingPlatforms.add(platform);
         });
@@ -229,6 +237,7 @@ class GameScene extends Phaser.Scene {
             this.physics.add.existing(r);
             r.body.setAllowGravity(false);
             r.body.setImmovable(true);
+            r.body.setVelocity(0, 0);
             r.patrol = robot.patrol;
             r.movingRight = true;
             this.robots.add(r);
@@ -319,6 +328,8 @@ class GameScene extends Phaser.Scene {
         // Collisions
         this.physics.add.collider(this.mario, this.platforms);
         this.physics.add.collider(this.mario, this.movingPlatforms);
+        this.physics.add.collider(this.robots, this.platforms);
+        this.physics.add.collider(this.robots, this.movingPlatforms);
         this.physics.add.overlap(this.mario, this.toys, this.collectToy, null, this);
         this.physics.add.overlap(this.mario, this.key, this.collectKey, null, this);
         this.physics.add.overlap(this.mario, this.goal, this.reachGoal, null, this);
@@ -369,6 +380,26 @@ class GameScene extends Phaser.Scene {
     update() {
         if (this.isGameComplete) return;
 
+        // Update moving platforms
+        this.movingPlatforms.children.entries.forEach(platform => {
+            const mp = platform.mpData;
+            const targetX = platform.movingToEnd ? mp.endX + mp.width / 2 : mp.startX + mp.width / 2;
+            const targetY = platform.movingToEnd ? mp.endY + mp.height / 2 : mp.startY + mp.height / 2;
+
+            const dx = targetX - platform.x;
+            const dy = targetY - platform.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 5) {
+                platform.movingToEnd = !platform.movingToEnd;
+            } else {
+                platform.body.setVelocity(
+                    (dx / dist) * mp.speed * 60,
+                    (dy / dist) * mp.speed * 60
+                );
+            }
+        });
+
         // Sync Mario graphics with physics body
         if (this.marioGraphics && this.mario) {
             this.marioGraphics.setPosition(this.mario.x, this.mario.y);
@@ -401,26 +432,6 @@ class GameScene extends Phaser.Scene {
             this.mario.body.setVelocityY(-500);
         }
 
-        // Update moving platforms
-        this.movingPlatforms.children.entries.forEach(platform => {
-            const mp = platform.mpData;
-            const targetX = platform.movingToEnd ? mp.endX + mp.width / 2 : mp.startX + mp.width / 2;
-            const targetY = platform.movingToEnd ? mp.endY + mp.height / 2 : mp.startY + mp.height / 2;
-
-            const dx = targetX - platform.x;
-            const dy = targetY - platform.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 5) {
-                platform.movingToEnd = !platform.movingToEnd;
-            } else {
-                platform.body.setVelocity(
-                    (dx / dist) * mp.speed * 60,
-                    (dy / dist) * mp.speed * 60
-                );
-            }
-        });
-
         // Update robots
         this.robots.children.entries.forEach(robot => {
             if (robot.patrol) {
@@ -444,6 +455,41 @@ class GameScene extends Phaser.Scene {
                     robot.eyes[1].y = robot.y - 8;
                 }
             }
+        });
+
+        // Apply platform velocity to Mario if standing on a moving platform
+        if (this.mario.body.touching.down) {
+            this.movingPlatforms.children.entries.forEach(platform => {
+                // Check if Mario's bottom overlaps with platform's top
+                const marioBottom = this.mario.body.bottom;
+                const platformTop = platform.body.top;
+                const platformLeft = platform.body.left;
+                const platformRight = platform.body.right;
+                const marioLeft = this.mario.body.left;
+                const marioRight = this.mario.body.right;
+
+                // Check if Mario is on this platform
+                if (Math.abs(marioBottom - platformTop) < 5 &&
+                    marioRight > platformLeft &&
+                    marioLeft < platformRight) {
+
+                    // Calculate the platform's movement this frame based on its velocity
+                    const platformVelX = platform.body.velocity.x;
+                    const platformVelY = platform.body.velocity.y;
+
+                    // Apply the platform's velocity to Mario's position
+                    // Using delta time to get the actual movement
+                    const delta = this.game.loop.delta / 1000; // Convert to seconds
+                    this.mario.x += platformVelX * delta;
+                    this.mario.y += platformVelY * delta;
+                }
+            });
+        }
+
+        // Store current positions for next frame
+        this.movingPlatforms.children.entries.forEach(platform => {
+            platform.prevX = platform.x;
+            platform.prevY = platform.y;
         });
 
         // Update time
@@ -528,7 +574,12 @@ class GameScene extends Phaser.Scene {
             // Activate platforms with this switch ID
             this.platforms.children.entries.forEach(platform => {
                 if (platform.switchId === sw.switchId) {
-                    platform.setAlpha(1);
+                    // Enable physics collision
+                    platform.body.enable = true;
+                    // Update graphics to full opacity
+                    if (platform.graphicsRef) {
+                        platform.graphicsRef.setAlpha(1);
+                    }
                 }
             });
 

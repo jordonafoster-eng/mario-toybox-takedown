@@ -18,7 +18,9 @@ const LEVELS = [
             { x: 220, y: 410, type: 'car' },
             { x: 320, y: 520, type: 'robot' }
         ],
-        robots: [],
+        robots: [
+            { x: 500, y: 520, patrol: { start: 400, end: 600 } }
+        ],
         switches: [],
         movingPlatforms: []
     },
@@ -44,7 +46,8 @@ const LEVELS = [
             { x: 850, y: 210, type: 'plane' }
         ],
         robots: [
-            { x: 420, y: 360, patrol: { start: 400, end: 500 } }
+            { x: 420, y: 360, patrol: { start: 400, end: 500 } },
+            { x: 850, y: 210, patrol: { start: 800, end: 950 } }
         ],
         switches: [],
         movingPlatforms: []
@@ -70,7 +73,9 @@ const LEVELS = [
             { x: 420, y: 160, type: 'plane' }
         ],
         robots: [
-            { x: 720, y: 160, patrol: { start: 650, end: 750 } }
+            { x: 450, y: 260, patrol: { start: 400, end: 520 } },
+            { x: 720, y: 160, patrol: { start: 650, end: 750 } },
+            { x: 1100, y: 510, patrol: { start: 1000, end: 1150 } }
         ],
         switches: [],
         movingPlatforms: [
@@ -85,23 +90,25 @@ const LEVELS = [
         width: 1000,
         height: 600,
         mario: { x: 50, y: 550 },
-        goal: { x: 900, y: 50 },
-        key: { x: 850, y: 60 },
+        goal: { x: 900, y: 250 },
+        key: { x: 850, y: 260 },
         platforms: [
             { x: 0, y: 580, width: 300, height: 20 },
             { x: 250, y: 450, width: 150, height: 20 },
             { x: 500, y: 350, width: 200, height: 20 },
             { x: 750, y: 450, width: 250, height: 20 },
-            { x: 800, y: 100, width: 200, height: 20, switchId: 1 }
+            { x: 800, y: 300, width: 200, height: 20, switchId: 1 }
         ],
         toys: [
             { x: 270, y: 410, type: 'car' },
             { x: 550, y: 310, type: 'robot' },
-            { x: 920, y: 60, type: 'plane' },
+            { x: 920, y: 260, type: 'plane' },
             { x: 820, y: 410, type: 'train' }
         ],
         robots: [
-            { x: 550, y: 310, patrol: { start: 500, end: 650 } }
+            { x: 150, y: 540, patrol: { start: 50, end: 250 } },
+            { x: 550, y: 310, patrol: { start: 500, end: 650 } },
+            { x: 850, y: 410, patrol: { start: 750, end: 950 } }
         ],
         switches: [
             { x: 770, y: 410, id: 1 }
@@ -136,9 +143,10 @@ const LEVELS = [
             { x: 720, y: 60, type: 'trophy' }
         ],
         robots: [
+            { x: 670, y: 710, patrol: { start: 600, end: 750 } },
             { x: 320, y: 510, patrol: { start: 300, end: 450 } },
-            { x: 620, y: 410, patrol: { start: 600, end: 750 } },
-            { x: 520, y: 210, patrol: { start: 500, end: 650 } }
+            { x: 650, y: 410, patrol: { start: 600, end: 750 } },
+            { x: 570, y: 210, patrol: { start: 500, end: 650 } }
         ],
         switches: [],
         movingPlatforms: [
@@ -153,8 +161,8 @@ const LEVELS = [
         width: 1200,
         height: 700,
         mario: { x: 50, y: 650 },
-        goal: { x: 1100, y: 100 },
-        key: { x: 900, y: 300 },
+        goal: { x: 1100, y: 130 },
+        key: { x: 850, y: 260 },
         platforms: [
             { x: 0, y: 680, width: 150, height: 20 },
             { x: 200, y: 600, width: 100, height: 20 },
@@ -169,12 +177,13 @@ const LEVELS = [
             { x: 220, y: 560, type: 'car' },
             { x: 370, y: 480, type: 'robot' },
             { x: 670, y: 320, type: 'plane' },
-            { x: 1100, y: 160, type: 'train' }
+            { x: 1100, y: 130, type: 'train' }
         ],
         robots: [
             { x: 370, y: 480, patrol: { start: 350, end: 430 } },
-            { x: 520, y: 400, patrol: { start: 500, end: 580 } },
-            { x: 850, y: 240, patrol: { start: 800, end: 930 } }
+            { x: 540, y: 400, patrol: { start: 500, end: 580 } },
+            { x: 680, y: 320, patrol: { start: 650, end: 730 } },
+            { x: 870, y: 240, patrol: { start: 800, end: 930 } }
         ],
         switches: [],
         movingPlatforms: []
@@ -187,7 +196,7 @@ const LEVELS = [
         height: 600,
         mario: { x: 50, y: 500 },
         goal: { x: 900, y: 500 },
-        key: { x: 500, y: 200 },
+        key: { x: 560, y: 230 },
         platforms: [
             { x: 0, y: 550, width: 200, height: 50 },
             { x: 250, y: 550, width: 150, height: 50 },
@@ -201,13 +210,14 @@ const LEVELS = [
             { x: 470, y: 410, type: 'robot' },
             { x: 620, y: 410, type: 'plane' },
             { x: 850, y: 510, type: 'train' },
-            { x: 520, y: 210, type: 'trophy' }
+            { x: 560, y: 230, type: 'trophy' }
         ],
         robots: [
+            { x: 100, y: 510, patrol: { start: 50, end: 180 } },
             { x: 300, y: 510, patrol: { start: 250, end: 380 } },
             { x: 470, y: 410, patrol: { start: 450, end: 530 } },
             { x: 620, y: 410, patrol: { start: 600, end: 680 } },
-            { x: 850, y: 510, patrol: { start: 750, end: 950 } }
+            { x: 850, y: 510, patrol: { start: 780, end: 950 } }
         ],
         switches: [],
         movingPlatforms: [
@@ -221,34 +231,33 @@ const LEVELS = [
         width: 1200,
         height: 800,
         mario: { x: 50, y: 750 },
-        goal: { x: 1100, y: 100 },
-        key: { x: 1050, y: 60 },
+        goal: { x: 1100, y: 130 },
+        key: { x: 1050, y: 130 },
         platforms: [
             { x: 0, y: 780, width: 250, height: 20 },
-            { x: 300, y: 650, width: 150, height: 20 },
-            { x: 500, y: 550, width: 200, height: 20 },
-            { x: 750, y: 650, width: 150, height: 20 },
-            { x: 950, y: 550, width: 150, height: 20 },
-            { x: 400, y: 400, width: 150, height: 20, switchId: 1 },
-            { x: 700, y: 350, width: 150, height: 20, switchId: 2 },
+            { x: 300, y: 650, width: 200, height: 20 },
+            { x: 550, y: 550, width: 200, height: 20 },
+            { x: 800, y: 650, width: 200, height: 20 },
+            { x: 400, y: 450, width: 150, height: 20, switchId: 1 },
+            { x: 650, y: 350, width: 150, height: 20, switchId: 2 },
             { x: 900, y: 250, width: 150, height: 20, switchId: 3 },
             { x: 1000, y: 150, width: 200, height: 20 }
         ],
         toys: [
-            { x: 320, y: 610, type: 'car' },
-            { x: 550, y: 510, type: 'robot' },
-            { x: 770, y: 610, type: 'plane' },
-            { x: 970, y: 510, type: 'train' },
-            { x: 1100, y: 110, type: 'trophy' }
+            { x: 350, y: 610, type: 'car' },
+            { x: 600, y: 510, type: 'robot' },
+            { x: 850, y: 610, type: 'plane' },
+            { x: 1100, y: 130, type: 'trophy' }
         ],
         robots: [
-            { x: 550, y: 510, patrol: { start: 500, end: 670 } },
-            { x: 970, y: 510, patrol: { start: 950, end: 1080 } }
+            { x: 380, y: 610, patrol: { start: 300, end: 470 } },
+            { x: 630, y: 510, patrol: { start: 550, end: 720 } },
+            { x: 900, y: 610, patrol: { start: 800, end: 980 } }
         ],
         switches: [
             { x: 180, y: 740, id: 1 },
-            { x: 650, y: 610, id: 2 },
-            { x: 850, y: 510, id: 3 }
+            { x: 420, y: 610, id: 2 },
+            { x: 830, y: 610, id: 3 }
         ],
         movingPlatforms: []
     },
@@ -260,24 +269,19 @@ const LEVELS = [
         height: 700,
         mario: { x: 50, y: 650 },
         goal: { x: 1300, y: 650 },
-        key: { x: 700, y: 100 },
+        key: { x: 700, y: 130 },
         platforms: [
             { x: 0, y: 680, width: 150, height: 20 },
             { x: 600, y: 150, width: 200, height: 20 },
             { x: 1200, y: 680, width: 200, height: 20 }
         ],
         toys: [
-            { x: 200, y: 550, type: 'car' },
-            { x: 400, y: 450, type: 'robot' },
-            { x: 700, y: 110, type: 'plane' },
-            { x: 1000, y: 450, type: 'train' },
-            { x: 1150, y: 550, type: 'trophy' }
+            { x: 700, y: 130, type: 'plane' },
+            { x: 1250, y: 650, type: 'trophy' }
         ],
         robots: [
-            { x: 300, y: 550, patrol: { start: 200, end: 400 } },
-            { x: 500, y: 450, patrol: { start: 400, end: 600 } },
-            { x: 900, y: 450, patrol: { start: 800, end: 1000 } },
-            { x: 1100, y: 550, patrol: { start: 1000, end: 1200 } }
+            { x: 720, y: 130, patrol: { start: 600, end: 780 } },
+            { x: 1280, y: 650, patrol: { start: 1200, end: 1370 } }
         ],
         switches: [],
         movingPlatforms: [
@@ -296,8 +300,8 @@ const LEVELS = [
         width: 1600,
         height: 1000,
         mario: { x: 50, y: 950 },
-        goal: { x: 1500, y: 50 },
-        key: { x: 800, y: 500 },
+        goal: { x: 1500, y: 80 },
+        key: { x: 800, y: 430 },
         platforms: [
             { x: 0, y: 980, width: 200, height: 20 },
             { x: 250, y: 880, width: 150, height: 20 },
@@ -318,15 +322,16 @@ const LEVELS = [
             { x: 870, y: 540, type: 'train' },
             { x: 1170, y: 410, type: 'trophy' },
             { x: 1370, y: 310, type: 'car' },
-            { x: 1480, y: 60, type: 'robot' }
+            { x: 1500, y: 80, type: 'robot' }
         ],
         robots: [
-            { x: 270, y: 840, patrol: { start: 250, end: 380 } },
-            { x: 470, y: 740, patrol: { start: 450, end: 580 } },
-            { x: 670, y: 640, patrol: { start: 650, end: 780 } },
-            { x: 870, y: 540, patrol: { start: 850, end: 980 } },
-            { x: 1170, y: 410, patrol: { start: 1150, end: 1280 } },
-            { x: 1370, y: 310, patrol: { start: 1350, end: 1480 } }
+            { x: 100, y: 940, patrol: { start: 50, end: 180 } },
+            { x: 300, y: 840, patrol: { start: 250, end: 380 } },
+            { x: 500, y: 740, patrol: { start: 450, end: 580 } },
+            { x: 700, y: 640, patrol: { start: 650, end: 780 } },
+            { x: 900, y: 540, patrol: { start: 850, end: 980 } },
+            { x: 1200, y: 410, patrol: { start: 1150, end: 1280 } },
+            { x: 1400, y: 310, patrol: { start: 1350, end: 1480 } }
         ],
         switches: [
             { x: 600, y: 640, id: 1 },
@@ -433,4 +438,16 @@ function returnToLevelSelect() {
         window.gameInstance = null;
     }
     showLevelSelect();
+}
+
+function restartLevel() {
+    if (currentLevel && window.gameInstance) {
+        window.gameInstance.destroy(true);
+        window.gameInstance = null;
+    }
+
+    if (currentLevel) {
+        // Restart the same level
+        startGame(currentLevel);
+    }
 }
