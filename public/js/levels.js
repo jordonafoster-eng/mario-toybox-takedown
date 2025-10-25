@@ -8,6 +8,7 @@ const LEVELS = [
         height: 600,
         mario: { x: 50, y: 500 },
         goal: { x: 700, y: 500 },
+        key: { x: 470, y: 360 },
         platforms: [
             { x: 0, y: 550, width: 800, height: 50 },
             { x: 200, y: 450, width: 150, height: 20 },
@@ -15,7 +16,7 @@ const LEVELS = [
         ],
         toys: [
             { x: 220, y: 410, type: 'car' },
-            { x: 470, y: 360, type: 'robot' }
+            { x: 320, y: 520, type: 'robot' }
         ],
         robots: [],
         switches: [],
@@ -29,6 +30,7 @@ const LEVELS = [
         height: 600,
         mario: { x: 50, y: 500 },
         goal: { x: 900, y: 200 },
+        key: { x: 620, y: 310 },
         platforms: [
             { x: 0, y: 550, width: 300, height: 50 },
             { x: 200, y: 450, width: 150, height: 20 },
@@ -55,6 +57,7 @@ const LEVELS = [
         height: 600,
         mario: { x: 50, y: 500 },
         goal: { x: 1100, y: 500 },
+        key: { x: 670, y: 160 },
         platforms: [
             { x: 0, y: 550, width: 200, height: 50 },
             { x: 1000, y: 550, width: 200, height: 50 },
@@ -63,11 +66,11 @@ const LEVELS = [
         ],
         toys: [
             { x: 420, y: 260, type: 'car' },
-            { x: 670, y: 160, type: 'robot' },
+            { x: 750, y: 160, type: 'robot' },
             { x: 420, y: 160, type: 'plane' }
         ],
         robots: [
-            { x: 670, y: 160, patrol: { start: 650, end: 750 } }
+            { x: 720, y: 160, patrol: { start: 650, end: 750 } }
         ],
         switches: [],
         movingPlatforms: [
@@ -83,6 +86,7 @@ const LEVELS = [
         height: 700,
         mario: { x: 50, y: 600 },
         goal: { x: 900, y: 100 },
+        key: { x: 850, y: 110 },
         platforms: [
             { x: 0, y: 650, width: 300, height: 50 },
             { x: 250, y: 500, width: 150, height: 20 },
@@ -93,7 +97,7 @@ const LEVELS = [
         toys: [
             { x: 270, y: 460, type: 'car' },
             { x: 550, y: 360, type: 'robot' },
-            { x: 850, y: 110, type: 'plane' },
+            { x: 920, y: 110, type: 'plane' },
             { x: 820, y: 460, type: 'train' }
         ],
         robots: [
@@ -112,6 +116,7 @@ const LEVELS = [
         height: 900,
         mario: { x: 50, y: 800 },
         goal: { x: 700, y: 50 },
+        key: { x: 520, y: 210 },
         platforms: [
             { x: 0, y: 850, width: 800, height: 50 },
             { x: 600, y: 750, width: 200, height: 20 },
@@ -139,6 +144,199 @@ const LEVELS = [
         movingPlatforms: [
             { startX: 250, startY: 650, endX: 550, endY: 650, width: 100, height: 20, speed: 1.5 },
             { startX: 350, startY: 350, endX: 450, endY: 350, width: 100, height: 20, speed: 1.5 }
+        ]
+    },
+    {
+        id: 6,
+        name: "Precision Platforms",
+        description: "Narrow platforms with multiple robots",
+        width: 1200,
+        height: 700,
+        mario: { x: 50, y: 650 },
+        goal: { x: 1100, y: 100 },
+        key: { x: 900, y: 300 },
+        platforms: [
+            { x: 0, y: 680, width: 150, height: 20 },
+            { x: 200, y: 600, width: 100, height: 20 },
+            { x: 350, y: 520, width: 100, height: 20 },
+            { x: 500, y: 440, width: 100, height: 20 },
+            { x: 650, y: 360, width: 100, height: 20 },
+            { x: 800, y: 280, width: 150, height: 20 },
+            { x: 1000, y: 200, width: 200, height: 20 },
+            { x: 1050, y: 150, width: 150, height: 20 }
+        ],
+        toys: [
+            { x: 220, y: 560, type: 'car' },
+            { x: 370, y: 480, type: 'robot' },
+            { x: 670, y: 320, type: 'plane' },
+            { x: 1100, y: 160, type: 'train' }
+        ],
+        robots: [
+            { x: 370, y: 480, patrol: { start: 350, end: 430 } },
+            { x: 520, y: 400, patrol: { start: 500, end: 580 } },
+            { x: 850, y: 240, patrol: { start: 800, end: 930 } }
+        ],
+        switches: [],
+        movingPlatforms: []
+    },
+    {
+        id: 7,
+        name: "Danger Zone",
+        description: "Avoid the deadly hazards!",
+        width: 1000,
+        height: 600,
+        mario: { x: 50, y: 500 },
+        goal: { x: 900, y: 500 },
+        key: { x: 500, y: 200 },
+        platforms: [
+            { x: 0, y: 550, width: 200, height: 50 },
+            { x: 250, y: 550, width: 150, height: 50 },
+            { x: 450, y: 450, width: 100, height: 20 },
+            { x: 500, y: 250, width: 150, height: 20 },
+            { x: 600, y: 450, width: 100, height: 20 },
+            { x: 750, y: 550, width: 250, height: 50 }
+        ],
+        toys: [
+            { x: 300, y: 510, type: 'car' },
+            { x: 470, y: 410, type: 'robot' },
+            { x: 620, y: 410, type: 'plane' },
+            { x: 850, y: 510, type: 'train' },
+            { x: 520, y: 210, type: 'trophy' }
+        ],
+        robots: [
+            { x: 300, y: 510, patrol: { start: 250, end: 380 } },
+            { x: 470, y: 410, patrol: { start: 450, end: 530 } },
+            { x: 620, y: 410, patrol: { start: 600, end: 680 } },
+            { x: 850, y: 510, patrol: { start: 750, end: 950 } }
+        ],
+        switches: [],
+        movingPlatforms: [
+            { startX: 200, startY: 350, endX: 350, endY: 350, width: 80, height: 20, speed: 3 }
+        ]
+    },
+    {
+        id: 8,
+        name: "Switch Maze",
+        description: "Master the switch puzzle",
+        width: 1200,
+        height: 800,
+        mario: { x: 50, y: 750 },
+        goal: { x: 1100, y: 100 },
+        key: { x: 1050, y: 60 },
+        platforms: [
+            { x: 0, y: 780, width: 250, height: 20 },
+            { x: 300, y: 650, width: 150, height: 20 },
+            { x: 500, y: 550, width: 200, height: 20 },
+            { x: 750, y: 650, width: 150, height: 20 },
+            { x: 950, y: 550, width: 150, height: 20 },
+            { x: 400, y: 400, width: 150, height: 20, switchId: 1 },
+            { x: 700, y: 350, width: 150, height: 20, switchId: 2 },
+            { x: 900, y: 250, width: 150, height: 20, switchId: 3 },
+            { x: 1000, y: 150, width: 200, height: 20 }
+        ],
+        toys: [
+            { x: 320, y: 610, type: 'car' },
+            { x: 550, y: 510, type: 'robot' },
+            { x: 770, y: 610, type: 'plane' },
+            { x: 970, y: 510, type: 'train' },
+            { x: 1100, y: 110, type: 'trophy' }
+        ],
+        robots: [
+            { x: 550, y: 510, patrol: { start: 500, end: 670 } },
+            { x: 970, y: 510, patrol: { start: 950, end: 1080 } }
+        ],
+        switches: [
+            { x: 180, y: 740, id: 1 },
+            { x: 650, y: 610, id: 2 },
+            { x: 850, y: 510, id: 3 }
+        ],
+        movingPlatforms: []
+    },
+    {
+        id: 9,
+        name: "Speed Run Challenge",
+        description: "Fast platforms and many enemies!",
+        width: 1400,
+        height: 700,
+        mario: { x: 50, y: 650 },
+        goal: { x: 1300, y: 650 },
+        key: { x: 700, y: 100 },
+        platforms: [
+            { x: 0, y: 680, width: 150, height: 20 },
+            { x: 600, y: 150, width: 200, height: 20 },
+            { x: 1200, y: 680, width: 200, height: 20 }
+        ],
+        toys: [
+            { x: 200, y: 550, type: 'car' },
+            { x: 400, y: 450, type: 'robot' },
+            { x: 700, y: 110, type: 'plane' },
+            { x: 1000, y: 450, type: 'train' },
+            { x: 1150, y: 550, type: 'trophy' }
+        ],
+        robots: [
+            { x: 300, y: 550, patrol: { start: 200, end: 400 } },
+            { x: 500, y: 450, patrol: { start: 400, end: 600 } },
+            { x: 900, y: 450, patrol: { start: 800, end: 1000 } },
+            { x: 1100, y: 550, patrol: { start: 1000, end: 1200 } }
+        ],
+        switches: [],
+        movingPlatforms: [
+            { startX: 150, startY: 680, endX: 250, endY: 580, width: 100, height: 20, speed: 4 },
+            { startX: 300, startY: 580, endX: 400, endY: 480, width: 100, height: 20, speed: 4 },
+            { startX: 500, startY: 480, endX: 600, endY: 200, width: 100, height: 20, speed: 4 },
+            { startX: 800, startY: 200, endX: 900, endY: 480, width: 100, height: 20, speed: 4 },
+            { startX: 950, startY: 480, endX: 1050, endY: 580, width: 100, height: 20, speed: 4 },
+            { startX: 1100, startY: 580, endX: 1200, endY: 680, width: 100, height: 20, speed: 4 }
+        ]
+    },
+    {
+        id: 10,
+        name: "Ultimate Gauntlet",
+        description: "The final challenge! All mechanics combined!",
+        width: 1600,
+        height: 1000,
+        mario: { x: 50, y: 950 },
+        goal: { x: 1500, y: 50 },
+        key: { x: 800, y: 500 },
+        platforms: [
+            { x: 0, y: 980, width: 200, height: 20 },
+            { x: 250, y: 880, width: 150, height: 20 },
+            { x: 450, y: 780, width: 150, height: 20 },
+            { x: 650, y: 680, width: 150, height: 20 },
+            { x: 850, y: 580, width: 150, height: 20 },
+            { x: 700, y: 450, width: 200, height: 20, switchId: 1 },
+            { x: 950, y: 350, width: 150, height: 20, switchId: 2 },
+            { x: 1150, y: 450, width: 150, height: 20 },
+            { x: 1350, y: 350, width: 150, height: 20 },
+            { x: 1300, y: 200, width: 150, height: 20, switchId: 3 },
+            { x: 1450, y: 100, width: 150, height: 20 }
+        ],
+        toys: [
+            { x: 270, y: 840, type: 'car' },
+            { x: 470, y: 740, type: 'robot' },
+            { x: 670, y: 640, type: 'plane' },
+            { x: 870, y: 540, type: 'train' },
+            { x: 1170, y: 410, type: 'trophy' },
+            { x: 1370, y: 310, type: 'car' },
+            { x: 1480, y: 60, type: 'robot' }
+        ],
+        robots: [
+            { x: 270, y: 840, patrol: { start: 250, end: 380 } },
+            { x: 470, y: 740, patrol: { start: 450, end: 580 } },
+            { x: 670, y: 640, patrol: { start: 650, end: 780 } },
+            { x: 870, y: 540, patrol: { start: 850, end: 980 } },
+            { x: 1170, y: 410, patrol: { start: 1150, end: 1280 } },
+            { x: 1370, y: 310, patrol: { start: 1350, end: 1480 } }
+        ],
+        switches: [
+            { x: 600, y: 640, id: 1 },
+            { x: 1050, y: 410, id: 2 },
+            { x: 1250, y: 310, id: 3 }
+        ],
+        movingPlatforms: [
+            { startX: 100, startY: 880, endX: 200, endY: 780, width: 100, height: 20, speed: 3 },
+            { startX: 350, startY: 680, endX: 450, endY: 580, width: 100, height: 20, speed: 3 },
+            { startX: 1000, startY: 250, endX: 1100, endY: 150, width: 100, height: 20, speed: 3 }
         ]
     }
 ];

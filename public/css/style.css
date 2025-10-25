@@ -329,6 +329,11 @@ body {
     height: calc(100vh - 70px);
 }
 
+#game-container canvas {
+    display: block !important;
+    border: 3px solid red !important;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .auth-container {
