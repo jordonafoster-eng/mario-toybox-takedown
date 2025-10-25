@@ -83,28 +83,28 @@ const LEVELS = [
         name: "Switch Station",
         description: "Activate switches to open new paths",
         width: 1000,
-        height: 700,
-        mario: { x: 50, y: 600 },
-        goal: { x: 900, y: 100 },
-        key: { x: 850, y: 110 },
+        height: 600,
+        mario: { x: 50, y: 550 },
+        goal: { x: 900, y: 50 },
+        key: { x: 850, y: 60 },
         platforms: [
-            { x: 0, y: 650, width: 300, height: 50 },
-            { x: 250, y: 500, width: 150, height: 20 },
-            { x: 500, y: 400, width: 200, height: 20 },
-            { x: 750, y: 500, width: 250, height: 20 },
-            { x: 800, y: 150, width: 200, height: 20, switchId: 1 }
+            { x: 0, y: 580, width: 300, height: 20 },
+            { x: 250, y: 450, width: 150, height: 20 },
+            { x: 500, y: 350, width: 200, height: 20 },
+            { x: 750, y: 450, width: 250, height: 20 },
+            { x: 800, y: 100, width: 200, height: 20, switchId: 1 }
         ],
         toys: [
-            { x: 270, y: 460, type: 'car' },
-            { x: 550, y: 360, type: 'robot' },
-            { x: 920, y: 110, type: 'plane' },
-            { x: 820, y: 460, type: 'train' }
+            { x: 270, y: 410, type: 'car' },
+            { x: 550, y: 310, type: 'robot' },
+            { x: 920, y: 60, type: 'plane' },
+            { x: 820, y: 410, type: 'train' }
         ],
         robots: [
-            { x: 550, y: 360, patrol: { start: 500, end: 650 } }
+            { x: 550, y: 310, patrol: { start: 500, end: 650 } }
         ],
         switches: [
-            { x: 770, y: 460, id: 1 }
+            { x: 770, y: 410, id: 1 }
         ],
         movingPlatforms: []
     },

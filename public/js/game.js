@@ -658,7 +658,7 @@ function startGame(level) {
             default: 'arcade',
             arcade: {
                 gravity: { y: 800 },
-                debug: true
+                debug: false
             }
         },
         scene: GameScene,
