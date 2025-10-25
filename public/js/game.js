@@ -240,12 +240,24 @@ class GameScene extends Phaser.Scene {
         });
 
         // Create switches
-        this.switches = this.physics.add.group();
+        this.switches = this.physics.add.staticGroup();
+        this.switchGraphics = [];
         this.levelData.switches?.forEach(sw => {
-            const s = this.add.circle(sw.x, sw.y, 15, 0xff00ff);
-            s.setStrokeStyle(3, 0xff88ff);
+            // Draw switch visual
+            const g = this.add.graphics();
+            g.fillStyle(0xff00ff, 1);
+            g.fillCircle(sw.x, sw.y, 15);
+            g.lineStyle(3, 0xff88ff, 1);
+            g.strokeCircle(sw.x, sw.y, 15);
+
+            // Physics body
+            const s = this.add.rectangle(sw.x, sw.y, 30, 30);
+            s.setAlpha(0);
             this.physics.add.existing(s, true);
             s.switchId = sw.id;
+            s.graphicsRef = g;
+
+            this.switchGraphics.push(g);
             this.switches.add(s);
         });
 
@@ -503,7 +515,15 @@ class GameScene extends Phaser.Scene {
     activateSwitch(mario, sw) {
         if (!this.switchesActivated.has(sw.switchId)) {
             this.switchesActivated.add(sw.switchId);
-            sw.setFillStyle(0x00ff00);
+
+            // Update switch visual to green
+            if (sw.graphicsRef) {
+                sw.graphicsRef.clear();
+                sw.graphicsRef.fillStyle(0x00ff00, 1);
+                sw.graphicsRef.fillCircle(sw.x, sw.y, 15);
+                sw.graphicsRef.lineStyle(3, 0x00ff88, 1);
+                sw.graphicsRef.strokeCircle(sw.x, sw.y, 15);
+            }
 
             // Activate platforms with this switch ID
             this.platforms.children.entries.forEach(platform => {
